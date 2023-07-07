@@ -7,8 +7,8 @@ const Button = ({ linkName, linkPath }) => {
       to={linkPath}
       className={({ isActive }) =>
         isActive
-          ? 'text-white/90 underline underline-offset-2'
-          : 'text-white hover:text-white/75'
+          ? 'text-white/90 underline underline-offset-2 text-lg'
+          : 'text-white hover:text-white/75 text-lg'
       }
     >
       {linkName}

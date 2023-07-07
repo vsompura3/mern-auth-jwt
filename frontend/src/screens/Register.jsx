@@ -8,24 +8,29 @@ const Register = () => {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
 
-  const handleSubmit = () => {}
+  const handleSubmit = e => {
+    e.preventDefault()
+  }
 
   return (
     <FormContainer>
-      <h2 className="text-3xl font-bold">Create an account</h2>
+      <h2 className="text-3xl md:text-4xl text-teal-900 font-bold">
+        Create an account
+      </h2>
       <form onSubmit={handleSubmit} className="grid gap-6 mt-8">
         <div className="grid gap-2">
           <label htmlFor="name" className="text-lg text-slate-800">
             Enter name:
           </label>
           <input
-            className="w-full px-4 py-2 rounded-md text-lg border-2 border-slate-300"
+            className="w-full px-4 py-2 rounded-md text-lg border-2 border-slate-300 text-slate-800"
             type="text"
             name="name"
             id="name"
             placeholder="Enter your name"
             value={name}
             onChange={e => setName(e.target.value)}
+            required
           />
         </div>
         <div className="grid gap-2">
@@ -33,13 +38,14 @@ const Register = () => {
             Enter email:
           </label>
           <input
-            className="w-full px-4 py-2 rounded-md text-lg border-2 border-slate-300"
+            className="w-full px-4 py-2 rounded-md text-lg border-2 border-slate-300 text-slate-800"
             type="email"
             name="email"
             id="email"
             placeholder="Enter email address"
             value={email}
             onChange={e => setEmail(e.target.value)}
+            required
           />
         </div>
         <div className="grid gap-2">
@@ -47,13 +53,14 @@ const Register = () => {
             Enter password:
           </label>
           <input
-            className="w-full px-4 py-2 rounded-md text-lg border-2 border-slate-300"
+            className="w-full px-4 py-2 rounded-md text-lg border-2 border-slate-300 text-slate-800"
             type="password"
             name="password"
             id="password"
             placeholder="Enter password"
             value={password}
             onChange={e => setPassword(e.target.value)}
+            required
           />
         </div>
         <div className="grid gap-2">
@@ -61,26 +68,27 @@ const Register = () => {
             Confirm password:
           </label>
           <input
-            className="w-full px-4 py-2 rounded-md text-lg border-2 border-slate-300"
+            className="w-full px-4 py-2 rounded-md text-lg border-2 border-slate-300 text-slate-800"
             type="password"
             name="confirmPassword"
             id="confirmPassword"
-            placeholder="confirm password"
+            placeholder="Confirm password"
             value={confirmPassword}
             onChange={e => setConfirmPassword(e.target.value)}
+            required
           />
         </div>
         <button
           type="submit"
-          className="bg-slate-800 text-white rounded py-2 text-lg hover:bg-slate-800/75"
+          className="bg-teal-900 text-white rounded py-2 text-lg hover:bg-teal-800/75"
         >
           Create account
         </button>
-        <p className="mt-2">
+        <p className="mt-2 text-slate-800">
           Already have an account.{' '}
           <Link
             to="/login"
-            className="text-slate-800 underline hover:text-slate-800/75"
+            className="text-teal-800 underline hover:text-teal-800/75"
           >
             Login
           </Link>
