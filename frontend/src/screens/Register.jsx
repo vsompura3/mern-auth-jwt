@@ -6,6 +6,7 @@ const Register = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
 
   const handleSubmit = () => {}
 
@@ -55,11 +56,25 @@ const Register = () => {
             onChange={e => setPassword(e.target.value)}
           />
         </div>
+        <div className="grid gap-2">
+          <label htmlFor="password" className="text-lg text-slate-800">
+            Confirm password:
+          </label>
+          <input
+            className="w-full px-4 py-2 rounded-md text-lg border-2 border-slate-300"
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
+            placeholder="confirm password"
+            value={confirmPassword}
+            onChange={e => setConfirmPassword(e.target.value)}
+          />
+        </div>
         <button
           type="submit"
           className="bg-slate-800 text-white rounded py-2 text-lg hover:bg-slate-800/75"
         >
-          Login
+          Create account
         </button>
         <p className="mt-2">
           Already have an account.{' '}
