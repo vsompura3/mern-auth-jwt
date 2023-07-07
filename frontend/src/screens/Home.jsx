@@ -1,4 +1,8 @@
+import { useSelector } from 'react-redux'
+
 const Home = () => {
+  const { userInfo } = useSelector(state => state.auth)
+
   return (
     <main>
       <div className="container mx-auto">
@@ -18,9 +22,15 @@ const Home = () => {
             .
           </p>
           <div className="mt-24">
-            <p className="text-center text-xl text-slate-800 bg-gray-300 p-4 rounded-md shadow">
-              You are not logged in.
-            </p>
+            {userInfo ? (
+              <p className="text-center text-xl text-slate-800 bg-emerald-300 p-4 rounded-md font-semibold shadow">
+                Hell yeah! you are logged in!
+              </p>
+            ) : (
+              <p className="text-center text-xl text-slate-800 bg-gray-300 p-4 rounded-md shadow">
+                You should log in.
+              </p>
+            )}
           </div>
         </section>
       </div>

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLoginMutation } from '../slices/usersApiSlice'
 import FormContainer from '../components/FormContainer'
 import { setCredentials } from '../slices/authSlice'
+import { toast } from 'react-toastify'
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -27,7 +28,7 @@ const Login = () => {
       dispatch(setCredentials({ ...res }))
       navigate('/')
     } catch (err) {
-      console.error(err?.data?.message || err.error)
+      toast.error(err?.data?.message || err.error)
     }
   }
 

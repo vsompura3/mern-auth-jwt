@@ -11,6 +11,7 @@
 body {
   background: #073438;
   color: #fff;
+  margin-bottom: 4em;
 }
 
 form :focus-visible {
@@ -26,7 +27,7 @@ form :focus-visible {
     #073438,
     #0e4b50,
     #2d8f85,
-    blueviolet,
+    #637c54,
     #2d8f85,
     #0e4b50,
     #073438,

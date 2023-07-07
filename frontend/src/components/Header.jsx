@@ -1,10 +1,12 @@
 import Button from './Button'
+import { useSelector } from 'react-redux'
 
 const navLinks = [
   { name: 'Login', path: '/login' },
   { name: 'Register', path: '/register' },
 ]
 const Header = () => {
+  const { userInfo } = useSelector(state => state.auth)
   return (
     <header className="bg-slate-800 text-white shadow-md border-b border-slate-600">
       <div className="container p-4 mx-auto">
@@ -32,13 +34,28 @@ const Header = () => {
             <span>MERN Auth</span>
           </a>
           <div className="flex justify-between items-center gap-8">
-            {navLinks.map(link => (
-              <Button
-                key={link.path}
-                linkName={link.name}
-                linkPath={link.path}
-              />
-            ))}
+            {userInfo ? (
+              <>
+                <p className="text-lg">
+                  {userInfo.name} ( {userInfo.email})
+                </p>
+                <Button
+                  linkName="Log Out"
+                  linkPath="/logout"
+                  variant="danger"
+                />
+              </>
+            ) : (
+              <>
+                {navLinks.map(link => (
+                  <Button
+                    key={link.path}
+                    linkName={link.name}
+                    linkPath={link.path}
+                  />
+                ))}
+              </>
+            )}
           </div>
         </nav>
       </div>
