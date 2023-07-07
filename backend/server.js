@@ -18,5 +18,5 @@ app.get('/', (req, res) => res.send('running'))
 app.use(notFound)
 app.use(errorHandler)
 app.listen(PORT, () => {
-  console.log(`Running on port ${PORT}`)
+  console.log(`Running on port: ${PORT}`)
 })
